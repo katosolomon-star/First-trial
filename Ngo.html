@@ -1,0 +1,66 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kato Children Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .header {
+      background: #4CAF50;
+      color: white;
+      padding: 1em;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: #fff;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+    section {
+      padding: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"></div>
+    <h1 id="company-name"></h1>
+    <p>Working for a better tomorrow 🌍</p>
+  </div>
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p id="company-name-about"></p>
+    </section>
+    <section>
+      <h2>Our Mission</h2>
+      <p>Empowering children for a brighter future.</p>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <p>Email: <span id="company-email"></span></p>
+      <p>Phone: +256 XXX XXX XXX</p>
+    </section>
+  </main>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const companyName = urlParams.get('company');
+    const defaultName = 'Kato Children Home';
+    const name = companyName || defaultName;
+    const email = companyName ? `${companyName.replace(/\s+/g, '').lowercase()}@example.org` : `info@${defaultName.replace(/\s+/g, '').lowercase()}.org`;
+
+    document.getElementById('company-name').textContent = name;
+    document.getElementById('company-name-about').textContent = `${name} supports vulnerable children in Uganda through education, healthcare, and nutrition programs.`;
+    document.getElementById('company-email').textContent = email;
+  </script>
+</body>
+</html>
